@@ -1,0 +1,24 @@
+<h1>Listing follow_requests</h1>
+
+<table>
+  <tr>
+    <th>Birder</th>
+    <th>Follower</th>
+    <th>Status</th>
+  </tr>
+
+<% @follow_requests.each do |follow_request| %>
+  <tr>
+    <td><%=h follow_request.birder_id %></td>
+    <td><%=h follow_request.follower_id %></td>
+    <td><%=h follow_request.status %></td>
+    <td><%= link_to 'Show', follow_request %></td>
+    <td><%= link_to 'Edit', edit_follow_request_path(follow_request) %></td>
+    <td><%= link_to 'Destroy', follow_request, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New follow_request', new_follow_request_path %>

@@ -1,0 +1,27 @@
+<h1>Editing sighting</h1>
+
+<% form_for(@sighting) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+
+  <p>
+    <%= f.label :sighting_date %><br />
+    <%= f.date_select :sighting_date %>
+  </p>
+  <p>
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </p>
+  <p>
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @sighting %> |
+<%= link_to 'Back', sightings_path %>

@@ -1,0 +1,28 @@
+<p>
+  <b>Birder:</b>
+  <%=h @sighting.birder_id %>
+</p>
+
+<p>
+  <b>Species:</b>
+  <%=h @sighting.bird_id %>
+</p>
+
+<p>
+  <b>Sighting date:</b>
+  <%=h @sighting.sighting_date %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%=h @sighting.location %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%=h @sighting.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_sighting_path(@sighting) %> |
+<%= link_to 'Back', sightings_path %>

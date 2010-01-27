@@ -1,0 +1,25 @@
+<h2>All Sightings</h2>
+
+<table class="bodyTable">
+  <tr>
+    <th>Birder</th>
+    <th>Species</th>
+    <th>Sighting date</th>
+    <th>Location</th>
+    <th>Comments</th>
+    <th>Options</th>
+  </tr>
+
+<% @sightings.each do |sighting| %>
+  <tr class="<%= cycle('a', 'b') %>">
+    <td><%=h sighting.birder.name %></td>
+    <td><%=h sighting.bird.vernacular_name %></td>
+    <td><%=h sighting.sighting_date %></td>
+    <td><%=h sighting.location %></td>
+    <td><%=h sighting.comments %></td>
+    <td><%= link_to 'Comment', :controller => :sightings, :id => sighting.id, :action => :comment %></td>
+  </tr>
+<% end %>
+</table>
+
+

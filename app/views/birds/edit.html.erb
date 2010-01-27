@@ -1,0 +1,32 @@
+<h1>Editing bird</h1>
+
+<% form_for(@bird) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :vernacular_name %><br />
+    <%= f.text_field :vernacular_name %>
+  </p>
+  <p>
+    <%= f.label :international_name %><br />
+    <%= f.text_field :international_name %>
+  </p>
+  <p>
+    <%= f.label :scientific_name %><br />
+    <%= f.text_field :scientific_name %>
+  </p>
+  <p>
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </p>
+  <p>
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @bird %> |
+<%= link_to 'Back', birds_path %>

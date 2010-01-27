@@ -1,0 +1,23 @@
+<p>
+  <b>User name:</b>
+  <%=h @birder.user_name %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%=h @birder.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @birder.last_name %>
+</p>
+
+<p>
+  <b>Email address:</b>
+  <%=h @birder.email_address %>
+</p>
+
+
+<%= link_to 'Edit', edit_birder_path(@birder) %> |
+<%= link_to 'Back', birders_path %>

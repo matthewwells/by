@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+matthew:
+  user_name: matthew
+  first_name: Matthew
+  last_name: Wells
+  hashed_password: MyString
+  salt: MyString
+  email_address: matthew.wells@naturalobjects.co.uk
+
+andrew:
+  user_name: andrew
+  first_name: Andrew
+  last_name: Ducat
+  hashed_password: MyString
+  salt: MyString
+  email_address: andrew_ducat@btinternet.com

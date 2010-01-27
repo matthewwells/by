@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Our Big Birding Year - 2010</title>
+<!-- START:stylesheet -->
+  <%= stylesheet_link_tag "maven-base", :media => "all" %><!-- <label id="code.slt"/> -->
+  <%= stylesheet_link_tag "maven-theme", :media => "all" %><!-- <label id="code.slt"/> -->
+  <%= stylesheet_link_tag "print", :media => "print" %><!-- <label id="code.slt"/> -->
+  <%= stylesheet_link_tag "scaffold", :media => "print" %><!-- <label id="code.slt"/> -->
+<!-- END:stylesheet -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
+  <body>
+  <div id="header">
+    <div id="top_menu">
+      <div id="top_menu_container">
+              
+  
+  
+  <div class="date">
+    Matthew &amp; Andrew's Big Birding Year - 2010
+  </div>
+            <ul>
+      <li><a href="http://www.birdsofbritain.co.uk/bird-guide/index.asp">Birds of Britain</a></li>
+        </ul>
+        <div class="clear"></div>
+      </div> <!-- close top_menu_container -->
+    </div> <!-- close top_menu -->
+    <div id="header_bottom">
+    <div id="logo_banner_container">
+            <div id="logo">
+          <a href=".."><%= image_tag("birdyr2010.jpg") %></a>
+        </div>
+              <div id="banner">
+              	<a href="../../"><%= image_tag("bino.png") %></a>
+        </div>
+        <div class="clear"></div>
+    </div> <!-- close logo_banner_container -->
+    </div> <!-- close header_bottom -->
+  </div> <!-- close header -->
+    <div id="main_container">
+    <div id="left_column">
+             <div class="left_menu_top">
+    <div class="left_menu_bottom">
+        <h5>Options</h5>
+            <div class="content">
+    <ul class="left_menu">
+              
+    <li class="none"><a href="/birders">Summary</a></li>
+    <li class="none"><a href="/sightings/my/x">My Sightings</a></li>
+    <li class="none"><a href="/birds">Species</a></li>
+    <li class="none"><a href="/birds/matrix/x">Sightings Matrix</a></li>
+    <li class="none"><a href="/sightings">All Sightings</a></li>
+          </ul>
+    </div><!-- close content -->
+        </div><!-- close left_menu_bottom -->
+    </div><!-- close left_menu_top -->
+      <div class="left_menu_top">
+    <div class="left_menu_bottom">
+        <h5>Useful Links</h5>
+            <div class="content">
+    <ul class="left_menu">
+              
+    <li class="none"><a href="http://www.bou.org.uk/recbrlst1.html" class="externalLink" target="_new">British Birds List<span/></a></li>
+          </ul>
+    </div><!-- close content -->
+        </div><!-- close left_menu_bottom -->
+    </div><!-- close left_menu_top -->
+           <div id="powered_by">
+                          <a href="http://rubyonrails.org/" title="Built by Matthew" class="poweredBy">
+            <%= image_tag("rails.png") %></img>
+          </a>
+              </div> <!-- close powered_by -->
+  <div class="clear"></div>
+    </div>
+    <div id="body_column">
+      <div>
+    	<% if flash[:notice] -%>
+    	<div id="notice"><%= flash[:notice]%></div>
+    	<% end -%>
+      <%= yield :layout %><!-- <label id="code.depot.e.include"/> -->
+      </div>
+    </div>
+    <div class="clear"></div>
+    </div> <!-- close main container -->
+    <div id="footer">
+      <div class="copyright">
+      <p>©  
+          2010
+    
+          Natural Objects Ltd
+      </p>
+      </div><!-- close copyright -->
+    </div><!-- close footer -->
+  </body>
+</html>

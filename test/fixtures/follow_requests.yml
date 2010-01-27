@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  birder_id: 1
+  follower_id: 1
+  status: MyString
+
+two:
+  birder_id: 1
+  follower_id: 1
+  status: MyString

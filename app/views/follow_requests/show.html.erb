@@ -1,0 +1,18 @@
+<p>
+  <b>Birder:</b>
+  <%=h @follow_request.birder_id %>
+</p>
+
+<p>
+  <b>Follower:</b>
+  <%=h @follow_request.follower_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @follow_request.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_follow_request_path(@follow_request) %> |
+<%= link_to 'Back', follow_requests_path %>

@@ -1,0 +1,27 @@
+<h2>My Sightings</h2>
+<p>
+<%= link_to 'New sighting', new_sighting_path %>
+</p>
+<table class="bodyTable">
+  <tr>
+    <th>Species</th>
+    <th>Sighting date</th>
+    <th>Location</th>
+    <th>Comments</th>
+    <th colspan="2">Options</th>
+  </tr>
+
+<% @sightings.each do |sighting| %>
+  <tr class="<%= cycle('a', 'b') %>">
+    <td><%=h sighting.bird.vernacular_name %></td>
+    <td><%=h sighting.sighting_date %></td>
+    <td><%=h sighting.location %></td>
+    <td><%=h sighting.comments %></td>
+    <td><%= link_to 'Edit', edit_sighting_path(sighting) %></td>
+    <td><%= link_to 'Destroy', sighting, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<%= link_to 'New sighting', new_sighting_path %>

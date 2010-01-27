@@ -1,0 +1,30 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+matthew-sees-blackbird:
+  birder: matthew
+  bird: blackbird
+  sighting_date: 2010-01-08
+  location: MyString
+  comments: MyText
+
+andrew-sees-blackbird:
+  birder: andrew
+  bird: blackbird
+  sighting_date: 2010-01-08
+  location: MyString
+  comments: MyText
+
+andrew-sees-blackbird-again:
+  birder: andrew
+  bird: blackbird
+  sighting_date: 2010-01-10
+  location: MyString
+  comments: MyText
+
+matthew-sees-robin:
+  birder: matthew
+  bird: robin
+  sighting_date: 2010-01-10
+  location: MyString
+  comments: MyText
+

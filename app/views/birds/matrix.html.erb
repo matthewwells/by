@@ -1,0 +1,35 @@
+<div class="section">
+<h2>Instructions for adding new Species</h2>
+<p>Please add species as you see them if they are not already entered.  Use the British Birds list found in the 'Useful Links' section
+	of the side bar to ensure accuracy of names etc.
+</p>
+<p>
+<%= link_to 'New Species', new_bird_path %>
+</p>
+</div>
+<div class="section">
+<h2>Species Listing</h2>
+
+<table class="bodyTable">
+  <tr>
+    <th>Record</th>
+    <th>Vernacular name</th>
+<% @birders.each do |birder| %>
+    <th align="center"><%=h birder.first_name %></th>
+<% end %>
+  </tr>
+
+<% @birds.each do |bird| %>
+  <tr class="<%= 'a' + bird.sightings.size.to_s %>">
+    <td><%= link_to 'Record Sighting', :controller => :sightings, :action => 'new', :id => bird.id unless (bird.seen_by? @me_id) %></td>
+    <td><%=h bird.vernacular_name %></td>
+<% @birders.each do |birder| %>
+    <td class="<%= (bird.seen_by? birder.id) ? 'seen' : '' %>"></td>
+<% end %>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'New Species', new_bird_path %>
+</div>
+
+

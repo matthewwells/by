@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+blackbird:
+  vernacular_name: Blackbird
+  international_name:
+  scientific_name: blackus birdus
+  category: A
+  image_url: MyString
+
+robin:
+  vernacular_name: Robin
+  international_name: Robin Cousins
+  scientific_name: redus breastus
+  category: A
+  image_url: MyString

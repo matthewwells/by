@@ -1,0 +1,27 @@
+<p>
+  <b>Vernacular name:</b>
+  <%=h @bird.vernacular_name %>
+</p>
+
+<p>
+  <b>International name:</b>
+  <%=h @bird.international_name %>
+</p>
+
+<p>
+  <b>Scientific name:</b>
+  <%=h @bird.scientific_name %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @bird.category %>
+</p>
+
+<div class="birdimage">
+	<img src="<%=h @bird.image_url %>"/>
+	</div>
+
+
+<%= link_to 'Edit', edit_bird_path(@bird) %> |
+<%= link_to 'Back', birds_path %>

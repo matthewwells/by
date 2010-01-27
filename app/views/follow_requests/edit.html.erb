@@ -1,0 +1,24 @@
+<h1>Editing follow_request</h1>
+
+<% form_for(@follow_request) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :birder_id %><br />
+    <%= f.text_field :birder_id %>
+  </p>
+  <p>
+    <%= f.label :follower_id %><br />
+    <%= f.text_field :follower_id %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @follow_request %> |
+<%= link_to 'Back', follow_requests_path %>

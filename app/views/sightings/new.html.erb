@@ -1,0 +1,31 @@
+<h1>New Sighting</h1>
+
+<% form_for(@sighting) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+  <p>
+    <%= f.label :bird_id, "Species" %><br />
+    <%= f.select :bird_id, Bird::bird_map, :prompt => "Select species..." %><br/>
+    <%= link_to 'New Species', new_bird_path %>
+  </p>
+  <p>
+    <%= f.label :sighting_date %><br />
+    <%= f.date_select :sighting_date %>
+  </p>
+  <p>
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </p>
+  <p>
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', sightings_path %>
