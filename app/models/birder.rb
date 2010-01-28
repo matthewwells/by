@@ -4,10 +4,15 @@ class Birder < ActiveRecord::Base
 	has_many :sightings
 	has_many :birds, :through => :sightings
   has_many :follow_requests
-  has_many :candidate_followers, :through => :follow_requests, :source => :follower
+#  has_many :candidate_followers, :through => :follow_requests, :source => :follower
   has_many :followers, :through => :follow_requests,
-           :conditions => "follow_requests.status == 'ACCEPTED'"
-	
+           :conditions => "follow_requests.status == 'Accepted'"
+
+  has_many :follower_requests, :class_name => 'FollowRequest', 
+                               :foreign_key => 'follower_id'
+  has_many :followees, :through => :follower_requests, :source => :birder,
+                       :conditions => "follow_requests.status == 'Accepted'"
+  
 	validates_presence_of :user_name
 	validates_uniqueness_of :user_name
 	
@@ -16,6 +21,13 @@ class Birder < ActiveRecord::Base
 	
 	validate :password_non_blank
 	
+  def self.birder_map
+    birders = find(:all, :order => :last_name)
+    birder_map = []
+    birders.each {|birder| birder_map << [birder.user_name, birder.id]}
+    birder_map
+  end
+  
 	def num_birds
 #		sightings = Sighting.find_all_by_birder_id(id)
 		birds.size

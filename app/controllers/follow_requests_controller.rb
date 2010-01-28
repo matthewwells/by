@@ -2,7 +2,8 @@ class FollowRequestsController < ApplicationController
   # GET /follow_requests
   # GET /follow_requests.xml
   def index
-    @follow_requests = FollowRequest.all
+    @follow_requests = FollowRequest.find_all_by_birder_id(session[:birder_id])
+    @followings = FollowRequest.find_all_by_follower_id(session[:birder_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,11 +42,13 @@ class FollowRequestsController < ApplicationController
   # POST /follow_requests.xml
   def create
     @follow_request = FollowRequest.new(params[:follow_request])
+    @follow_request.follower_id = session[:birder_id]
+    @follow_request.status = 'Requested'
 
     respond_to do |format|
       if @follow_request.save
         flash[:notice] = 'FollowRequest was successfully created.'
-        format.html { redirect_to(@follow_request) }
+        format.html { redirect_to :action => "index" }
         format.xml  { render :xml => @follow_request, :status => :created, :location => @follow_request }
       else
         format.html { render :action => "new" }
@@ -63,6 +66,38 @@ class FollowRequestsController < ApplicationController
       if @follow_request.update_attributes(params[:follow_request])
         flash[:notice] = 'FollowRequest was successfully updated.'
         format.html { redirect_to(@follow_request) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @follow_request.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def accept
+    @follow_request = FollowRequest.find(params[:id])
+    @follow_request.status = 'Accepted'
+
+    respond_to do |format|
+      if @follow_request.update_attributes(params[:follow_request])
+        flash[:notice] = 'Follow Request was successfully accepted.'
+        format.html { redirect_to :action => 'index' }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @follow_request.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def reject
+    @follow_request = FollowRequest.find(params[:id])
+    @follow_request.status = 'Rejected'
+
+    respond_to do |format|
+      if @follow_request.update_attributes(params[:follow_request])
+        flash[:notice] = 'FollowRequest was successfully rejected.'
+        format.html { redirect_to :action => 'index' }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

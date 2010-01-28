@@ -443,6 +443,18 @@ ul.left_menu ul li.expanded ul li.none a.selected {
 	background: #CCFFCC;
 }
 
+#body_column table.bodyTable tr.Requested {
+	background: #FFFFAA;
+}
+
+#body_column table.bodyTable tr.Accepted {
+	background: #AAFFAA;
+}
+
+#body_column table.bodyTable tr.Rejected {
+	background: #FFAAAA;
+}
+
 #body_column table.bodyTable tr td.seen {
 	background-image: url(/images/smallgreentick.png);
 	background-repeat: no-repeat;

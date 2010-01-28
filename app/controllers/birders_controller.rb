@@ -1,13 +1,21 @@
+require 'set'
 class BirdersController < ApplicationController
   # GET /birders
   # GET /birders.xml
   def index
-    @birders = Birder.all
-    birds = Bird.all
-    @total_species = 0;
-    birds.each do |bird|
-    	@total_species += 1 if bird.sightings.size > 0
-	end
+    me = Birder.find_by_id(session[:birder_id])
+    @birders = me.followees
+    @birders = [me] + @birders
+#    birds = Bird.all
+#    @total_species = 0;
+#    birds.each do |bird|
+#    	@total_species += 1 if bird.sightings.size > 0
+#	  end
+    all_species  = []
+    @birders.each do |birder|
+      all_species += birder.birds;
+    end
+    @total_species = all_species.to_set.size
 
     respond_to do |format|
       format.html # index.html.erb

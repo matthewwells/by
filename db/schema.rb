@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100109135733) do
+ActiveRecord::Schema.define(:version => 20100126093215) do
 
   create_table "birders", :force => true do |t|
     t.string   "user_name",       :null => false
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(:version => 20100109135733) do
     t.string   "scientific_name"
     t.string   "category"
     t.string   "image_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "follow_requests", :force => true do |t|
+    t.integer  "birder_id"
+    t.integer  "follower_id"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

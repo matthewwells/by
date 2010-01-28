@@ -2,16 +2,16 @@
 
 <table class="bodyTable">
   <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
+    <th>Username</th>
+    <th>Name</th>
     <th>Number of Species</th>
     <th>Options</th>
   </tr>
 
 <% @birders.each do |birder| %>
   <tr class="<%= cycle('a', 'b') %>">
-    <td><%=h birder.first_name %></td>
-    <td><%=h birder.last_name %></td>
+    <td><%=h birder.user_name %></td>
+    <td><%=h birder.name %></td>
     <td><%=h birder.num_birds %></td>
     <td><%= link_to 'Edit', edit_birder_path(birder) if birder.id == session[:birder_id] %></td>
   </tr>

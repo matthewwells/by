@@ -14,8 +14,10 @@ class BirdsController < ApplicationController
   # GET /birds
   # GET /birds.xml
   def matrix
+    me = Birder.find_by_id(session[:birder_id])
+    @birders = me.followees
+    @birders = [me] + @birders
     @birds = Bird.all :order => :vernacular_name
-    @birders = Birder.all :order => :first_name
     @me_id = session[:birder_id]
 
     respond_to do |format|

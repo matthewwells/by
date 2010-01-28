@@ -2,7 +2,16 @@ class SightingsController < ApplicationController
   # GET /sightings
   # GET /sightings.xml
   def index
-    @sightings = Sighting.all :order => "sighting_date DESC"
+#    @sightings = Sighting.all :order => "sighting_date DESC"
+    @sightings = []
+    me = Birder.find_by_id(session[:birder_id])
+    @birders = me.followees
+    @birders = [me] + @birders
+    @birders.each do |birder|
+      @sightings += birder.sightings
+    end
+    @sightings = @sightings.sort_by {|s| (s.sighting_date) }
+    @sightings.reverse!
 
     respond_to do |format|
       format.html # index.html.erb

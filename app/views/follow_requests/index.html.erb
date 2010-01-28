@@ -1,24 +1,48 @@
-<h1>Listing follow_requests</h1>
-
-<table>
+<h2>You are following:</h2>
+<p> Listed below are the birders that you have requested to follow.  If they have 
+accepted your request then you will be able to view their sightings and add them to your
+sightings matrix.</p><br/>
+<%= link_to 'New follow request', new_follow_request_path %>
+<table class="bodyTable">
   <tr>
-    <th>Birder</th>
-    <th>Follower</th>
+    <th>Username</th>
+    <th>Name</th>
     <th>Status</th>
+    <th colspan="1">Options</th>
+  </tr>
+
+<% @followings.each do |following| %>
+  <tr class="<%= following.status %>">
+    <td><%=h following.birder.user_name %></td>
+    <td><%=h following.birder.name %></td>
+    <td><%=h following.status %></td>
+    <td><%= link_to 'Remove', following, :confirm => "Click OK if you wish to stop following "+following.birder.name, :method => :delete %></td>
+    <!--td><%= link_to 'Add to matrix', edit_follow_request_path(following) %></td-->
+  </tr>
+<% end %>
+</table><br/>
+<h2>You are being followed by:</h2>
+<p> Listed below are the birders that have requested to follow you.  Accept their
+request if you are happy for them to be able to view your sightings.</p><br/>
+
+<table class="bodyTable">
+  <tr>
+    <th>Username</th>
+    <th>Name</th>
+    <th>Status</th>
+    <th colspan="2">Options</th>
   </tr>
 
 <% @follow_requests.each do |follow_request| %>
-  <tr>
-    <td><%=h follow_request.birder_id %></td>
-    <td><%=h follow_request.follower_id %></td>
+  <tr class="<%= follow_request.status %>">
+    <td><%=h follow_request.follower.user_name %></td>
+    <td><%=h follow_request.follower.name %></td>
     <td><%=h follow_request.status %></td>
-    <td><%= link_to 'Show', follow_request %></td>
-    <td><%= link_to 'Edit', edit_follow_request_path(follow_request) %></td>
-    <td><%= link_to 'Destroy', follow_request, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Accept', :action => 'accept', :id => follow_request.id, :disabled => !follow_request.requested? %></td>
+    <td><%= link_to 'Reject', :action => 'reject', :id => follow_request.id %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New follow_request', new_follow_request_path %>
